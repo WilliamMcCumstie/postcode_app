@@ -34,6 +34,9 @@ class Postcode
   validates :lsoa, presence: true
 
   def fetch
-    self.lsoa = "foo"
+    url = "http://postcodes.io/postcodes/#{URI.escape code}"
+    response = Faraday.get url
+    json = JSON.parse response.body
+    self.lsoa = json["result"]["lsoa"]
   end
 end

@@ -50,4 +50,12 @@ RSpec.describe Postcode, type: :model do
       it { should be_valid }
     end
   end
+
+  context 'with an unfetched postcode containing deviding spaces' do
+    subject { build(:unfetched_postcode, code: "SE1   7QD", lsoa: "Southwark 034A") }
+
+    describe '#fetch' do
+      it { should be_valid }
+    end
+  end
 end

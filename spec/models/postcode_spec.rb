@@ -60,4 +60,10 @@ RSpec.describe Postcode, type: :model do
       expect(subject.lsoa).to eq("Southwark 034A")
     end
   end
+
+  context 'with an unknown postcode' do
+    subject { build(:unfetched_postcode, code: 'foo bar') }
+    before { subject.fetch }
+    it { should_not be_valid }
+  end
 end

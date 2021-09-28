@@ -36,6 +36,7 @@ class Postcode
   def fetch
     url = "http://postcodes.io/postcodes/#{URI.escape code}"
     response = Faraday.get url
+    return unless response.status == 200
     json = JSON.parse response.body
     self.lsoa = json["result"]["lsoa"]
   end

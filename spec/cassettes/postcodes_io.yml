@@ -104,4 +104,48 @@ http_interactions:
         area","admin_county":null,"admin_ward":"St George''s","ced":null,"ccg":"NHS
         South East London","nuts":"Lewisham and Southwark","codes":{"admin_district":"E09000028","admin_county":"E99999999","admin_ward":"E05011114","parish":"E43000218","parliamentary_constituency":"E14000553","ccg":"E38000244","ccg_id":"72Q","ced":"E99999999","nuts":"TLI44","lsoa":"E01003930","msoa":"E02006802","lau2":"E09000028"}}}'
   recorded_at: Tue, 28 Sep 2021 22:31:24 GMT
+- request:
+    method: get
+    uri: http://postcodes.io/postcodes/foo%20bar
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Tue, 28 Sep 2021 22:45:56 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '41'
+      connection:
+      - keep-alive
+      x-gnu:
+      - Michael J Blanchard
+      access-control-allow-origin:
+      - "*"
+      etag:
+      - W/"29-T14TWaKfjMuMFPoRgcsDj2g1ORs"
+      cf-cache-status:
+      - MISS
+      report-to:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=USgpyBklKYNMr%2BBcymtqNvkGeWw7MbytdY2eLiV8N56j11JcopRhrvE2JIfpOaCQPU9FiFtzJGk7V2sWxDCzw99NLSXvfejB60Gejsn2H1jCc8YAPvLmdg%2FAn5M8yg%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 696081455e063613-MAN
+    body:
+      encoding: UTF-8
+      string: '{"status":404,"error":"Invalid postcode"}'
+  recorded_at: Tue, 28 Sep 2021 22:45:56 GMT
 recorded_with: VCR 6.0.0

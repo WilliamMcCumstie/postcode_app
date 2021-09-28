@@ -40,4 +40,14 @@ RSpec.describe Postcode, type: :model do
     subject { build(:postcode, lsoa: nil) }
     it { should_not be_valid }
   end
+
+  context 'with an unfetched postcode' do
+    subject { build(:unfetched_postcode) }
+    it { should_not be_valid }
+
+    describe '#fetch' do
+      before { subject.fetch }
+      it { should be_valid }
+    end
+  end
 end

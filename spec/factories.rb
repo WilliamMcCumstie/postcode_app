@@ -28,5 +28,9 @@ FactoryBot.define do
   factory :postcode do
     sequence(:code) { |n| "DE#{n} 0MO" }
     lsoa { "DEMO 000" }
+
+    factory :unfetched_postcode do
+      lsoa { nil }
+    end
   end
 end

@@ -32,4 +32,8 @@ class Postcode
 
   attr_accessor :lsoa
   validates :lsoa, presence: true
+
+  def fetch
+    self.lsoa = "foo"
+  end
 end

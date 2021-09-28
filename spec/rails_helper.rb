@@ -30,6 +30,13 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "#{::Rails.root}/spec/cassettes"
+  config.hook_into :faraday
+  config.configure_rspec_metadata!
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -64,4 +71,15 @@ RSpec.configure do |config|
 
   # Include the factorybot methods
   config.include FactoryBot::Syntax::Methods
+
+  # Use VCR
+  config.around(:each) do |examples|
+    VCR.use_cassette("postcodes.io",
+      record: :new_episodes,
+      allow_playback_repeats: true,
+      allow_unused_http_interactions: true
+    ) do
+      examples.call
+    end
+  end
 end

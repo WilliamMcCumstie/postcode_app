@@ -51,11 +51,13 @@ RSpec.describe Postcode, type: :model do
     end
   end
 
-  context 'with an unfetched postcode containing deviding spaces' do
-    subject { build(:unfetched_postcode, code: "SE1   7QD", lsoa: "Southwark 034A") }
+  context 'when fetching a postcode containing deviding spaces' do
+    subject { build(:unfetched_postcode, code: "SE1   7QD") }
+    before { subject.fetch }
+    it { should be_valid }
 
-    describe '#fetch' do
-      it { should be_valid }
+    it 'resolves the lsoa' do
+      expect(subject.lsoa).to eq("Southwark 034A")
     end
   end
 end

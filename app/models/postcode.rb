@@ -28,5 +28,8 @@ class Postcode
   include ActiveModel::Model
 
   attr_accessor :code
+  validates :code, presence: true
+
   attr_accessor :lsoa
+  validates :lsoa, presence: true
 end

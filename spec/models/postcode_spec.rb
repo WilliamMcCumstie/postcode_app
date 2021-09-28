@@ -28,7 +28,16 @@ require 'rails_helper'
 RSpec.describe Postcode, type: :model do
   context 'with basic model' do
     subject { build(:postcode) }
-
     it { should be_valid }
+  end
+
+  context 'with a missing code' do
+    subject { build(:postcode, code: nil) }
+    it { should_not be_valid }
+  end
+
+  context 'with a missing lsoa' do
+    subject { build(:postcode, lsoa: nil) }
+    it { should_not be_valid }
   end
 end

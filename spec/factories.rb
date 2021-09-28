@@ -23,12 +23,10 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #==============================================================================
-require 'rails_helper'
 
-RSpec.describe Postcode, type: :model do
-  context 'with basic model' do
-    subject { build(:postcode) }
-
-    it { should be_valid }
+FactoryBot.define do
+  factory :postcode do
+    sequence(:code) { |n| "DE#{n} 0MO" }
+    lsoa { "DEMO 000" }
   end
 end

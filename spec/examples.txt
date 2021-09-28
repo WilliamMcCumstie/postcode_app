@@ -1,0 +1,5 @@
+example_id                               | status  | run_time        |
+---------------------------------------- | ------- | --------------- |
+./spec/models/postcode_spec.rb[1:1:1]    | passed  | 0.00094 seconds |
+./spec/models/postcode_spec.rb[1:2:1]    | passed  | 0.00158 seconds |
+./spec/requests/postcodes_spec.rb[1:1:1] | pending | 0.00001 seconds |

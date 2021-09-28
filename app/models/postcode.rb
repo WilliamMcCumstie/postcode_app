@@ -27,5 +27,6 @@
 class Postcode
   include ActiveModel::Model
 
-  attr_reader :code
+  attr_accessor :code
+  attr_accessor :lsoa
 end

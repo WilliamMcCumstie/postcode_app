@@ -148,4 +148,92 @@ http_interactions:
       encoding: UTF-8
       string: '{"status":404,"error":"Invalid postcode"}'
   recorded_at: Tue, 28 Sep 2021 22:45:56 GMT
+- request:
+    method: get
+    uri: http://postcodes.io/postcodes/foo/bar
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Tue, 28 Sep 2021 22:48:32 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '43'
+      connection:
+      - keep-alive
+      x-gnu:
+      - Michael J Blanchard
+      access-control-allow-origin:
+      - "*"
+      etag:
+      - W/"2b-rD27OrVJ9vKemDNFJ1N8ArOvLVo"
+      cf-cache-status:
+      - MISS
+      report-to:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=s7sMS8uxOZBii8ChYb%2FvcBw2ChSiH9lg5njCNX%2FN28mrrgN8Fij1ZlyBWVsQWmka73QckxiQ2lo%2BaC3ds2%2BS4OeyOocTDku%2F9fcqsofvzRu%2FcEKhPexNEjwWWQd8NA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 69608510de8fd214-MAN
+    body:
+      encoding: UTF-8
+      string: '{"status":404,"error":"Resource not found"}'
+  recorded_at: Tue, 28 Sep 2021 22:48:32 GMT
+- request:
+    method: get
+    uri: http://postcodes.io/postcodes/FOO%20BAR
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Tue, 28 Sep 2021 22:59:23 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '41'
+      connection:
+      - keep-alive
+      x-gnu:
+      - Michael J Blanchard
+      access-control-allow-origin:
+      - "*"
+      etag:
+      - W/"29-T14TWaKfjMuMFPoRgcsDj2g1ORs"
+      cf-cache-status:
+      - MISS
+      report-to:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=u%2B5pDidjaCF9d2ZpUdRIqdaGG%2BDujypsKEU%2BidFqxZbBCsj24tD3jCv0h4RCPTRvv5HazCuTlmd9fcfEX%2FLJLr%2F2hOYjttPVkqkhXajdMp4hOHLABn%2FXehT2HlmhsA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 696094f85c36e5a3-MAN
+    body:
+      encoding: UTF-8
+      string: '{"status":404,"error":"Invalid postcode"}'
+  recorded_at: Tue, 28 Sep 2021 22:59:23 GMT
 recorded_with: VCR 6.0.0

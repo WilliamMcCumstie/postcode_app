@@ -33,9 +33,14 @@ class Postcode
   attr_accessor :lsoa
   validates :lsoa, presence: true
 
+  # Primarily used to facilitate testing
+  attr_accessor :last_postcodes_response
+
   def fetch
+    return unless /\A[A-Z\d ]+\Z/.match?(code)
     url = "http://postcodes.io/postcodes/#{URI.escape code}"
     response = Faraday.get url
+    self.last_postcodes_response = response
     return unless response.status == 200
     json = JSON.parse response.body
     self.lsoa = json["result"]["lsoa"]

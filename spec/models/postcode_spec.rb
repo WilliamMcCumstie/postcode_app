@@ -62,8 +62,22 @@ RSpec.describe Postcode, type: :model do
   end
 
   context 'with an unknown postcode' do
-    subject { build(:unfetched_postcode, code: 'foo bar') }
+    subject { build(:unfetched_postcode, code: 'FOO BAR') }
     before { subject.fetch }
     it { should_not be_valid }
+
+    it 'should have a postcodes response' do
+      expect(subject.last_postcodes_response).to be_truthy
+    end
+  end
+
+  context 'with a non-alphanumeric postcode' do
+    subject { build(:unfetched_postcode, code: 'FOO/BAR') }
+    before { subject.fetch }
+    it { should_not be_valid }
+
+    it 'should not have a postcodes response' do
+      expect(subject.last_postcodes_response).to be_falsy
+    end
   end
 end

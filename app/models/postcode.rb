@@ -57,7 +57,7 @@ class Postcode
   end
 
   def fetch
-    return unless /\A[A-Z\d ]+\Z/.match?(code)
+    return unless /\A[a-zA-Z\d ]+\Z/.match?(code)
     url = "http://postcodes.io/postcodes/#{URI.escape code}"
     response = Faraday.get url
     self.last_postcodes_response = response

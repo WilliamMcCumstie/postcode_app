@@ -380,4 +380,52 @@ http_interactions:
         & St Thomas","ced":"Jericho and Osney","ccg":"NHS Oxfordshire","nuts":"Oxfordshire
         CC","codes":{"admin_district":"E07000178","admin_county":"E10000025","admin_ward":"E05013111","parish":"E43000128","parliamentary_constituency":"E14000873","ccg":"E38000136","ccg_id":"10Q","ced":"E58001257","nuts":"TLJ14","lsoa":"E01028522","msoa":"E02005947","lau2":"E07000178"}}}'
   recorded_at: Wed, 29 Sep 2021 19:31:21 GMT
+- request:
+    method: get
+    uri: http://postcodes.io/postcodes/se17qd
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 29 Sep 2021 20:18:32 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-gnu:
+      - Michael J Blanchard
+      access-control-allow-origin:
+      - "*"
+      etag:
+      - W/"361-L7VrDXW3HuMgFqM+YjyYpD8TP5I"
+      cf-cache-status:
+      - MISS
+      report-to:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=HsGPryUysie1yEeAE30IgCHM7Th4FWdpoxJazJQEeOXPMaepdFlc4ap6WrRyHIfI0nfsz5c3o07S1fkeNRhF1yXQHGx7Ld6YLlr3mwgV4a7MAGvR3KZlYl3W46Y7sQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 6967e6b8ce633622-MAN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"status":200,"result":{"postcode":"SE1 7QD","quality":1,"eastings":531513,"northings":179395,"country":"England","nhs_ha":"London","longitude":-0.106793,"latitude":51.498204,"european_electoral_region":"London","primary_care_trust":"Southwark","region":"London","lsoa":"Southwark
+        034A","msoa":"Southwark 034","incode":"7QD","outcode":"SE1","parliamentary_constituency":"Bermondsey
+        and Old Southwark","admin_district":"Southwark","parish":"Southwark, unparished
+        area","admin_county":null,"admin_ward":"St George''s","ced":null,"ccg":"NHS
+        South East London","nuts":"Lewisham and Southwark","codes":{"admin_district":"E09000028","admin_county":"E99999999","admin_ward":"E05011114","parish":"E43000218","parliamentary_constituency":"E14000553","ccg":"E38000244","ccg_id":"72Q","ced":"E99999999","nuts":"TLI44","lsoa":"E01003930","msoa":"E02006802","lau2":"E09000028"}}}'
+  recorded_at: Wed, 29 Sep 2021 20:18:32 GMT
 recorded_with: VCR 6.0.0

@@ -69,6 +69,20 @@ RSpec.describe Postcode, type: :model do
     end
   end
 
+  context 'when fetching a lowercase postcode' do
+    subject { build(:unfetched_postcode, code: "se17qd") }
+    it { should be_orchestrated_valid }
+
+    describe '#fetch' do
+      before { subject.fetch }
+      it { should be_valid }
+
+      it 'resolves the lsoa' do
+        expect(subject.lsoa).to eq("Southwark 034A")
+      end
+    end
+  end
+
   context 'with an unknown postcode' do
     subject { build(:unfetched_postcode, code: 'FOO BAR') }
 

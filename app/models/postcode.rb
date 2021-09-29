@@ -31,10 +31,24 @@ class Postcode
   validates :code, presence: true
 
   attr_accessor :lsoa
-  validates :lsoa, presence: true
+
+  # Checks if the LSOA is within the service area
+  validate do
+    if lsoa
+      shortened_lsoa = Settings.shortened_lsoas.find do |area|
+        area == lsoa[0...area.length]
+      end
+      unless shortened_lsoa
+        @errors.add(:lsoa, 'is not within the service area')
+      end
+    else
+      @errors.add(:lsoa, 'has not been given')
+    end
+  end
 
   # Primarily used to facilitate testing
   attr_accessor :last_postcodes_response
+
 
   def fetch
     return unless /\A[A-Z\d ]+\Z/.match?(code)

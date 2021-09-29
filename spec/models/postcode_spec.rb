@@ -80,4 +80,17 @@ RSpec.describe Postcode, type: :model do
       expect(subject.last_postcodes_response).to be_falsy
     end
   end
+
+  context 'with an out of region lsoa' do
+    subject { build(:postcode, lsoa: 'some-other-region') }
+    it { should_not be_valid }
+  end
+
+  context 'when the lsoa is a suffix of a valid region' do
+    subject do
+      lsoa = Settings.shortened_lsoas.first[2..-1]
+      build(:postcode, lsoa: lsoa)
+    end
+    it { should_not be_valid }
+  end
 end

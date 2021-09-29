@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/WilliamMcCumstie/postcode_app.svg?branch=master)](https://app.travis-ci.com/WilliamMcCumstie/postcode_app)
+
 # README
 
 This README would normally document whatever steps are necessary to get the

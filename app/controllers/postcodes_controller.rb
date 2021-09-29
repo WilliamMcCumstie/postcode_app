@@ -29,6 +29,6 @@ class PostcodesController < ApplicationController
   end
 
   def show
-    @postcode = Postcode.new(code: 'foo')
+    @postcode = Postcode.new(code: params.require(:id))
   end
 end

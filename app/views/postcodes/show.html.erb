@@ -1,2 +1,6 @@
-<h1>Hello PostCode</h1>
-<h3><%= @postcode.code %></h3>
+<h1>PostCode Check</h1>
+<% if @postcode.orchestrated_valid? %>
+  <h3>Congratulations! <%= @postcode.code %> is within our service area</h3>
+<% else %>
+  <h3>Sorry, <%= @postcode.code %> is not within our service area</h3>
+<% end %>

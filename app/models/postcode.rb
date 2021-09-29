@@ -41,7 +41,7 @@ class Postcode
       unless shortened_lsoa
         @errors.add(:lsoa, 'is not within the service area')
       end
-    else
+    elsif ! Settings.allowed_postcodes.include?(code)
       @errors.add(:lsoa, 'has not been given')
     end
   end

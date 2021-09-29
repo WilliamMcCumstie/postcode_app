@@ -93,4 +93,9 @@ RSpec.describe Postcode, type: :model do
     end
     it { should_not be_valid }
   end
+
+  context 'with an allowed postcode' do
+    subject { build(:unfetched_postcode, code: Settings.allowed_postcodes.first) }
+    it { should be_valid }
+  end
 end

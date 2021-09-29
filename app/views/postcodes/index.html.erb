@@ -1,0 +1,6 @@
+<h1>Check Postcode</h1>
+<%= form_with do |form| %>
+  <%= form.label :code, "Check Postcode:" %>
+  <%= form.text_field :code, required: true %>
+  <%= form.button 'Check' %>
+<% end %>

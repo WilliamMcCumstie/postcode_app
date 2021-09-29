@@ -49,6 +49,12 @@ class Postcode
   # Primarily used to facilitate testing
   attr_accessor :last_postcodes_response
 
+  # Checks if the postcode is valid, fetching it if required
+  def orchestrated_valid?
+    return true if valid?
+    fetch
+    valid?
+  end
 
   def fetch
     return unless /\A[A-Z\d ]+\Z/.match?(code)

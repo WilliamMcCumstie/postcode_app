@@ -49,35 +49,49 @@ RSpec.describe Postcode, type: :model do
       before { subject.fetch }
       it { should be_valid }
     end
+
+    describe '#orchestrated_valid?' do
+      it { should be_orchestrated_valid }
+    end
   end
 
   context 'when fetching a postcode containing deviding spaces' do
     subject { build(:unfetched_postcode, code: "SE1   7QD") }
-    before { subject.fetch }
-    it { should be_valid }
+    it { should be_orchestrated_valid }
 
-    it 'resolves the lsoa' do
-      expect(subject.lsoa).to eq("Southwark 034A")
+    describe '#fetch' do
+      before { subject.fetch }
+      it { should be_valid }
+
+      it 'resolves the lsoa' do
+        expect(subject.lsoa).to eq("Southwark 034A")
+      end
     end
   end
 
   context 'with an unknown postcode' do
     subject { build(:unfetched_postcode, code: 'FOO BAR') }
-    before { subject.fetch }
-    it { should_not be_valid }
 
-    it 'should have a postcodes response' do
-      expect(subject.last_postcodes_response).to be_truthy
+    describe '#fetch' do
+      before { subject.fetch }
+      it { should_not be_valid }
+
+      it 'should have a postcodes response' do
+        expect(subject.last_postcodes_response).to be_truthy
+      end
     end
   end
 
   context 'with a non-alphanumeric postcode' do
     subject { build(:unfetched_postcode, code: 'FOO/BAR') }
-    before { subject.fetch }
-    it { should_not be_valid }
 
-    it 'should not have a postcodes response' do
-      expect(subject.last_postcodes_response).to be_falsy
+    describe '#fetch' do
+      before { subject.fetch }
+      it { should_not be_valid }
+
+      it 'should not have a postcodes response' do
+        expect(subject.last_postcodes_response).to be_falsy
+      end
     end
   end
 
@@ -97,5 +111,14 @@ RSpec.describe Postcode, type: :model do
   context 'with an allowed postcode' do
     subject { build(:unfetched_postcode, code: Settings.allowed_postcodes.first) }
     it { should be_valid }
+
+    describe '#orchestrated_valid?' do
+      it { should be_orchestrated_valid }
+
+      it 'should not have made the request' do
+        subject.orchestrated_valid?
+        expect(subject.last_postcodes_response).to be_falsy
+      end
+    end
   end
 end

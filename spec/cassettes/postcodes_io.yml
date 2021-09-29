@@ -236,4 +236,48 @@ http_interactions:
       encoding: UTF-8
       string: '{"status":404,"error":"Invalid postcode"}'
   recorded_at: Tue, 28 Sep 2021 22:59:23 GMT
+- request:
+    method: get
+    uri: http://postcodes.io/postcodes/SH24%201AA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Wed, 29 Sep 2021 19:04:54 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '43'
+      connection:
+      - keep-alive
+      x-gnu:
+      - Michael J Blanchard
+      access-control-allow-origin:
+      - "*"
+      etag:
+      - W/"2b-60dCBHUxbddknotWwisUCk6O8SA"
+      cf-cache-status:
+      - MISS
+      report-to:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=cWepwVZBScTpnHvLLTx%2FDpEDB%2F4MccBmtQrqQagDcgria4HXYwNOHyK0q0QZEYrsxRQvY%2B6VNMD1R%2Bv9IrV0sWhjGHwW5gU9XGDoG0ExGYVCcwSkvBZf5NpqNDkIsQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 69677addbbf53613-MAN
+    body:
+      encoding: UTF-8
+      string: '{"status":404,"error":"Postcode not found"}'
+  recorded_at: Wed, 29 Sep 2021 19:04:54 GMT
 recorded_with: VCR 6.0.0

@@ -29,5 +29,6 @@ class PostcodesController < ApplicationController
   end
 
   def show
+    @postcode = Postcode.new(code: 'foo')
   end
 end

@@ -330,4 +330,54 @@ http_interactions:
         & St Thomas","ced":"Jericho and Osney","ccg":"NHS Oxfordshire","nuts":"Oxfordshire
         CC","codes":{"admin_district":"E07000178","admin_county":"E10000025","admin_ward":"E05013111","parish":"E43000128","parliamentary_constituency":"E14000873","ccg":"E38000136","ccg_id":"10Q","ced":"E58001257","nuts":"TLJ14","lsoa":"E01028522","msoa":"E02005947","lau2":"E07000178"}}}'
   recorded_at: Wed, 29 Sep 2021 19:20:52 GMT
+- request:
+    method: get
+    uri: http://postcodes.io/postcodes/OX1%201AA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 29 Sep 2021 19:31:21 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-gnu:
+      - Michael J Blanchard
+      access-control-allow-origin:
+      - "*"
+      etag:
+      - W/"365-vk4CpNVG7yRXNWWYMkYuoHJMgcg"
+      cf-cache-status:
+      - HIT
+      report-to:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=tL3ByGAgnDf2qUUrr9ow%2BXuEh0DWgttI%2BdoGqm0Hjzma9b8Bp%2BwYhSs7gSQzaEHQ3c17Obj4jFG4bAGxHMag1hpMD0y6faWbRB%2BBNaZPGg3cSexXZc8clf6ouHiyeg%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 6967a1982d17d21c-MAN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"status":200,"result":{"postcode":"OX1 1AA","quality":1,"eastings":450673,"northings":205980,"country":"England","nhs_ha":"South
+        Central","longitude":-1.267367,"latitude":51.750231,"european_electoral_region":"South
+        East","primary_care_trust":"Oxfordshire","region":"South East","lsoa":"Oxford
+        008B","msoa":"Oxford 008","incode":"1AA","outcode":"OX1","parliamentary_constituency":"Oxford
+        East","admin_district":"Oxford","parish":"Oxford, unparished area","admin_county":"Oxfordshire","admin_ward":"Osney
+        & St Thomas","ced":"Jericho and Osney","ccg":"NHS Oxfordshire","nuts":"Oxfordshire
+        CC","codes":{"admin_district":"E07000178","admin_county":"E10000025","admin_ward":"E05013111","parish":"E43000128","parliamentary_constituency":"E14000873","ccg":"E38000136","ccg_id":"10Q","ced":"E58001257","nuts":"TLJ14","lsoa":"E01028522","msoa":"E02005947","lau2":"E07000178"}}}'
+  recorded_at: Wed, 29 Sep 2021 19:31:21 GMT
 recorded_with: VCR 6.0.0

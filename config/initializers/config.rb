@@ -51,6 +51,10 @@ Config.setup do |config|
   #   required(:age).maybe(:int?)
   #   required(:email).filled(format?: EMAIL_REGEX)
   # end
+  config.schema do
+    required(:shortened_lsoas).array(:str?)
+    required(:allowed_postcodes).array(:str?)
+  end
 
   # Evaluate ERB in YAML config files at load time.
   #

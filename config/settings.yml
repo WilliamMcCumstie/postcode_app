@@ -1,0 +1,5 @@
+# Gives the prefix of the allowed LSOAS
+# shortened_lsoas: []
+
+# Specify a list of allowed postcodes regardless of lsoas
+# allowed_postcodes: []

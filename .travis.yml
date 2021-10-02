@@ -4,7 +4,12 @@ language: ruby
 cache: bundler
 rvm:
   - 2.6.5
-before_install: gem install bundler -v 2.2.28
+before_install:
+  - gem install bundler -v 2.2.28
+install:
+  - bundle install
+  - nvm install node 10.17.0
+  - bundle exec rails webpacker:install
 script: bundle exec rspec --format documentation --order random
 branches:
   only:

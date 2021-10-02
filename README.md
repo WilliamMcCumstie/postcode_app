@@ -23,7 +23,7 @@ bundle install
 
 ## Configuration
 
-This application does not require any database configuration. Instead the allowed postcodes are specified within a YAML configuration file. The `development` configuration file can be found [here](config/settings/production.yml).
+This application does not require any database configuration. Instead the allowed postcodes are specified within a YAML configuration file. The `development` configuration file can be found [here](config/settings/development.yml).
 
 The `production` server can be configured by first creating a local config:
 
@@ -38,7 +38,7 @@ The allowed postcodes can be configured via two keys. Both of which take an arra
 
 NOTE: Both keys will need to be set before the server will start in `production`. An empty array `[]` should be used if a particular key is not applicable.
 
-NOTE: The `allowed_postcodes` is case sensitive.
+NOTE: The `allowed_postcodes` is not case sensitive.
 
 ## Running the server
 
@@ -56,7 +56,9 @@ The server can than be accessed on:
 
 The tests can be ran with:
 
-`bundle exec rspec`
+```
+bundle exec rspec
+```
 
 # License
 

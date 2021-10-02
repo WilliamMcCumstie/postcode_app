@@ -135,4 +135,18 @@ RSpec.describe Postcode, type: :model do
       end
     end
   end
+
+  context 'with an downcased allowed postcode' do
+    subject { build(:unfetched_postcode, code: Settings.allowed_postcodes.first.downcase) }
+    it { should be_valid }
+
+    describe '#orchestrated_valid?' do
+      it { should be_orchestrated_valid }
+
+      it 'should not have made the request' do
+        subject.orchestrated_valid?
+        expect(subject.last_postcodes_response).to be_falsy
+      end
+    end
+  end
 end

@@ -2,28 +2,61 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A basic application to check if a postcode is within the given service area.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+This application requires the following:
 
-* System dependencies
+* `ruby` version 2.6.5, and
+* `bundler` version 2.2.28
 
-* Configuration
+## Installation
 
-* Database creation
+Run the following to install the application:
 
-* Database initialization
+```
+git clone https://github.com/WilliamMcCumstie/postcode_app
+cd postcode_app
+bundle install
+```
 
-* How to run the test suite
+## Configuration
 
-* Services (job queues, cache servers, search engines, etc.)
+This application does not require any database configuration. Instead the allowed postcodes are specified within a YAML configuration file. The `development` configuration file can be found [here](config/settings/production.yml).
 
-* Deployment instructions
+The `production` server can be configured by first creating a local config:
 
-* ...
+```
+touch config/settings/production.local.yml
+```
+
+The allowed postcodes can be configured via two keys. Both of which take an array of values:
+
+* `shortened_lsoas`: The first section of the _Lower Layer Super Output Area_ (e.g. `Lambeth`), or
+* `allowed_postcodes`: A static list of additional postcodes (regardless of lsoa).
+
+NOTE: Both keys will need to be set before the server will start in `production`. An empty array `[]` should be used if a particular key is not applicable.
+
+NOTE: The `allowed_postcodes` is case sensitive.
+
+## Running the server
+
+The `production` server can be started with:
+
+```
+bundle exec rails server -e production
+```
+
+The server can than be accessed on:
+
+`http://localhost:3000`
+
+## Running the test suite
+
+The tests can be ran with:
+
+`bundle exec rspec`
 
 # License
 

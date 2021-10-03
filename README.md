@@ -25,6 +25,7 @@ git clone https://github.com/WilliamMcCumstie/postcode_app
 cd postcode_app
 bundle install
 bundle exec rails webpacker:install
+bundle exec rails webpacker:compile
 ```
 
 ## Configuration

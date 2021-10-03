@@ -11,6 +11,11 @@ This application requires the following:
 * `ruby` version 2.6.5, and
 * `bundler` version 2.2.28
 
+This application requires `webpacker` to generate its `javascript` static assets. Webpacker requires following dependencies:
+
+* `node` version 10.17.0, and
+* `yarn` version 1.22.11
+
 ## Installation
 
 Run the following to install the application:
@@ -19,6 +24,7 @@ Run the following to install the application:
 git clone https://github.com/WilliamMcCumstie/postcode_app
 cd postcode_app
 bundle install
+bundle exec rails webpacker:install
 ```
 
 ## Configuration

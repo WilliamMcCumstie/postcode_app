@@ -46,6 +46,14 @@ NOTE: Both keys will need to be set before the server will start in `production`
 
 NOTE: The `allowed_postcodes` is not case sensitive.
 
+### Setting the production secret
+
+As this application has not been deployed, you will need to generate the rails secret with:
+
+```
+bundle exec rails credentials:edit
+```
+
 ## Running the server
 
 The `production` server can be started with:
